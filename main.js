@@ -108,18 +108,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("custom").checked = true;
   });
   customOption.addEventListener("input", () => {
-    customOption.value = customOption.value.replace(/\./g, "");
+    customOption.value = customOption.value.replace(/[^0-9]/g, "");
     percentage = parseInt(customOption.value);
     checkRequirements();
-  });
+});
 
   customOption.addEventListener("keydown", (event) => {
     if (
       event.key === "+" ||
       event.key === "-" ||
       event.key === "." ||
-      event.key === "e" ||
-      event.keyCode === 190
+      event.key === "e"
     ) {
       event.preventDefault();
     }
@@ -127,12 +126,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Reject decimal places or negative values;
   numberOfPeople.addEventListener("keydown", (event) => {
-    if (event.key === "." || event.key === "-" || event.key === "e" ||  event.keyCode === 190) {
+    if (event.key === "." || event.key === "-" || event.key === "e") {
       event.preventDefault();
     }
   });
 
   numberOfPeople.addEventListener("input", () => {
+    numberOfPeople.value = numberOfPeople.value.replace(/[^0-9]/g, "");
     validateNumberOfPeople();
   });
 
