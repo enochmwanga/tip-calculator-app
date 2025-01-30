@@ -40,7 +40,7 @@ input[type="radio"] {
 }
 input[type="radio"]:checked + div {
   color: var(--very-dark-cyan);
-  background-color: var(--strong-cyan);
+  background-color: var(--light-grayish-cyan);
 }
 input[type="radio"]:checked + input[type="number"] {
   color: var(--very-dark-cyan);
@@ -152,6 +152,9 @@ input:focus:invalid {
   color: var(--very-dark-cyan);
   padding: 1em;
   width: 100%;
+}
+#reset-btn:hover{
+  background-color: var(--light-grayish-cyan);
 }
 @media screen and (min-width: 650px) {
   main {
