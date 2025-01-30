@@ -118,7 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
       event.key === "+" ||
       event.key === "-" ||
       event.key === "." ||
-      event.key === "e"
+      event.key === "e" ||
+      event.keyCode === 190
     ) {
       event.preventDefault();
     }
@@ -126,13 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Reject decimal places or negative values;
   numberOfPeople.addEventListener("keydown", (event) => {
-    if (event.key === "." || event.key === "-" || event.key === "e") {
+    if (event.key === "." || event.key === "-" || event.key === "e" ||  event.keyCode === 190) {
       event.preventDefault();
     }
   });
 
   numberOfPeople.addEventListener("input", () => {
-    numberOfPeople.value = numberOfPeople.value.replace(/\./g, "");
     validateNumberOfPeople();
   });
 
