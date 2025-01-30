@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const customOption = document.getElementById("customOption");
   const billError = document.querySelector("label[for='bill'] + span.error");
   const numberOfPeople = document.getElementById("people");
-  const numberError = document.querySelector("label[for='people'] + span.error");
+  const numberError = document.querySelector(
+    "label[for='people'] + span.error"
+  );
   const tipPerPerson = document.getElementById("tip-per-person");
   const totalPerPerson = document.getElementById("total-per-person");
   let amount = 0;
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function validateNumberOfPeople() {
     const number = numberOfPeople.value;
-    
+
     if (parseInt(number) === 0) {
       showNumberError("Can't be zero");
       return;
@@ -49,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showNumberError(message) {
-    tipPerPerson.innerText = `0.00`
-    totalPerPerson.innerText = `0.00`
+    tipPerPerson.innerText = `0.00`;
+    totalPerPerson.innerText = `0.00`;
     numberError.textContent = message;
     numberError.className = "error active";
   }
@@ -106,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("custom").checked = true;
   });
   customOption.addEventListener("input", () => {
+    customOption.value = customOption.value.replace(/\./g, "");
     percentage = parseInt(customOption.value);
     checkRequirements();
   });
@@ -129,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   numberOfPeople.addEventListener("input", () => {
+    numberOfPeople.value = numberOfPeople.value.replace(/\./g, "");
     validateNumberOfPeople();
   });
 
