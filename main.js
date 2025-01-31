@@ -64,8 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function calculateTipAndTotal() {
-    let tip = ((amount * percentage) / 100).toFixed(2);
-    let total = (tip * clients).toFixed(2);
+    let tip = (((amount * percentage) / 100) / clients).toFixed(2);
+    let total = (((amount * percentage) / 100) / clients + (amount / clients)).toFixed(2);
+    console.log(tip);
+    console.log(total);
     if (isNaN(tip) || isNaN(total)) {
       tip = (0).toFixed(2);
       total = (0).toFixed(2);
